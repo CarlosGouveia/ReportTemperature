@@ -32,9 +32,8 @@ export default class ConectaDispositivo extends Component {
                 <Header style={styles.customHeader} androidStatusBarColor='#404242'>
 
                     <Body style={styles.customBody}>
-
-                        <Title style={styles.customTitle}>Tempe+</Title>
                         <Icon name="pulse" style={styles.colorIcon} />
+                        <Title style={styles.customTitle}>Report-Temperature</Title>
                         <Icon name="pulse" style={styles.colorIcon} />
                     </Body>
                     

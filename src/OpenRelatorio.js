@@ -24,15 +24,17 @@ import {
 export default class OpenRelatorio extends Component {
 
     static navigationOptions = {
-        headerTintColor : '#fff',
+        headerTintColor: '#fff',
         headerTransparent: 'true',
     }
+
+
+
 
     render() {
 
         const source = {
-            // uri:'file:///sdcard/Downloads/jantar.pdf',
-            uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',
+            uri:'file:///sdcard/Download/relatorio.pdf',
             // cache:true,
         };
 
@@ -42,29 +44,30 @@ export default class OpenRelatorio extends Component {
 
                     <Body style={styles.customBody}>
 
-                        <Title style={styles.customTitle}>Tempe+</Title>
                         <Icon name="pulse" style={styles.colorIcon} />
+                        <Title style={styles.customTitle}>Report-Temperature</Title>
                         <Icon name="pulse" style={styles.colorIcon} />
+
                     </Body>
-                    
+
                 </Header>
 
-                 <Container style={styles.customContainer}>
-                        
+                <Container style={styles.customContainer}>
+
                     <Button block light style={styles.marginBtn1}>
                         <Text>Abrir relatório</Text>
                     </Button>
-                    
+
                     <View style={styles.containerPDF}>
                         <Pdf
                             source={source}
-                            onLoadComplete={(numberOfPages,filePath)=>{
+                            onLoadComplete={(numberOfPages, filePath) => {
                                 console.log(`number of pages: ${numberOfPages}`);
                             }}
-                            onPageChanged={(page,numberOfPages)=>{
+                            onPageChanged={(page, numberOfPages) => {
                                 console.log(`current page: ${page}`);
                             }}
-                            onError={(error)=>{
+                            onError={(error) => {
                                 console.log(error);
                             }}
                             style={styles.pdf}
@@ -95,8 +98,8 @@ const styles = StyleSheet.create({
     },
 
     pdf: {
-        flex:1,
-        width:Dimensions.get('window').width,
+        flex: 1,
+        width: Dimensions.get('window').width,
     },
 
     customHeader: {
@@ -114,9 +117,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#747777',
     },
 
-	colorIcon: {
-	    color: '#f46242',
-  	},
+    colorIcon: {
+        color: '#f46242',
+    },
 
     customText: {
         color: '#fff',
