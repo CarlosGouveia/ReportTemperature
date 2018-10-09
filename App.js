@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, ImageBackground } from 'react-native';
 
 import { createStackNavigator } from 'react-navigation';
 
@@ -8,20 +8,16 @@ import {
     Container,
     Header,
     Title,
-    Content,
     Text,
     Button,
     Icon,
     Footer,
     FooterTab,
-    Left,
-    Right,
     Body,
 } from "native-base";
 
-import ConectaDispositivo from 'ReportTemperature_v1/src/ConectaDispositivo.js';
-import GetRelatorio from 'ReportTemperature_v1/src/GetRelatorio.js';
 import OpenRelatorio from 'ReportTemperature_v1/src/OpenRelatorio.js';
+import ListRelatorio from 'ReportTemperature_v1/src/ListRelatorio.js';
 
 class App extends Component {
 
@@ -42,23 +38,21 @@ class App extends Component {
                         <Title style={styles.customTitle}>Report-Temperature</Title>
                         <Icon name="pulse" style={styles.colorIcon} />
                     </Body>
-                    
+
                 </Header>
 
-                 <Container style={styles.customContainer}>
-                        
-                    <Button block light style={styles.marginBtn1} onPress = {() => navigate('ConectaDispositivo')}>
-                        <Text>Conectar a um dispositivo</Text>
-                    </Button>
+                <Container style={styles.customContainer}>
 
-                    <Button block info style={styles.marginBtn2} onPress = {() => navigate('GetRelatorio')}>
-                        <Text>Obter relatorios</Text>
-                    </Button>
+                    <ImageBackground
+                        source={require('./Data/img/coffe.jpg')}
+                        imageStyle={{ resizeMode: 'stretch' }}
+                        style={styles.customBackgroundImg}
+                    >
+                        <Button block light style={styles.marginBtn2} onPress={() => navigate('ListRelatorio')}>
+                            <Text style={styles.customText}>Abrir relatórios</Text>
+                        </Button>
+                    </ImageBackground>
 
-                    <Button block light style={styles.marginBtn1} onPress = {() => navigate('OpenRelatorio')}>
-                        <Text>Abrir relatorios</Text>
-                    </Button>
-                 
                 </Container>
 
                 <Footer>
@@ -75,15 +69,15 @@ class App extends Component {
 }
 
 const StackApp = createStackNavigator({
-        Home               : App ,
-        ConectaDispositivo : ConectaDispositivo,
-        GetRelatorio       : GetRelatorio,
-        OpenRelatorio      : OpenRelatorio,
+    Home: App,
+    ListRelatorio: ListRelatorio,
+    OpenRelatorio: OpenRelatorio,
     },
-    
+
     {
-        headerMode : 'screen',
-    })
+        headerMode: 'screen',
+    }
+)
 
 export default StackApp
 
@@ -104,8 +98,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#747777',
     },
 
-  colorIcon: {
-      color: '#f46242',
+    colorIcon: {
+        color: '#f46242',
     },
 
     customText: {
@@ -123,9 +117,11 @@ const styles = StyleSheet.create({
     },
 
     marginBtn2: {
-        marginTop: 20,
-        marginBottom: 20,
-        backgroundColor: '#f46242',
+        marginTop: 290,
+        backgroundColor: 'rgba(244,98,66,1.0)',
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius: 15,
     },
 
     customContainer: {
@@ -133,8 +129,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 30,
         backgroundColor: '#d6d8d8',
+    },
+    customBackgroundImg: {
+        width: '100%',
+        height: '100%',
+        paddingTop: 80,
     },
 
 });

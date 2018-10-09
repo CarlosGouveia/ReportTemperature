@@ -8,18 +8,13 @@ import {
     Container,
     Header,
     Title,
-    Content,
     Text,
     Button,
     Icon,
     Footer,
     FooterTab,
-    Left,
-    Right,
     Body,
 } from "native-base";
-
-// import styles from "./styles";
 
 export default class OpenRelatorio extends Component {
 
@@ -28,14 +23,14 @@ export default class OpenRelatorio extends Component {
         headerTransparent: 'true',
     }
 
-
-
+    constructor(props){
+        super(props);
+    }
 
     render() {
 
         const source = {
-            uri:'file:///sdcard/Download/relatorio.pdf',
-            // cache:true,
+            uri:this.props.navigation.state.params
         };
 
         return (
@@ -53,10 +48,6 @@ export default class OpenRelatorio extends Component {
                 </Header>
 
                 <Container style={styles.customContainer}>
-
-                    <Button block light style={styles.marginBtn1}>
-                        <Text>Abrir relatório</Text>
-                    </Button>
 
                     <View style={styles.containerPDF}>
                         <Pdf
@@ -130,24 +121,11 @@ const styles = StyleSheet.create({
         fontSize: 25,
     },
 
-    marginBtn1: {
-        marginTop: 10,
-        marginBottom: 10,
-    },
-
-    marginBtn2: {
-        marginTop: 20,
-        marginBottom: 20,
-        backgroundColor: '#f46242',
-    },
-
     customContainer: {
         flexGrow: 1,
         flexDirection: 'column',
         alignItems: 'center',
-        padding: 20,
         backgroundColor: '#d6d8d8',
     },
-
 });
 
