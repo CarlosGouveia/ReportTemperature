@@ -54,11 +54,14 @@ export default class ListRelatorio extends Component {
                     
                     var data = quebra[1].replace(/-/g,"/");
 
-                    var list_hora = quebra[2].split(".");
-                    var hora = list_hora[0].replace("-",":");
+                    var hora = quebra[2].replace(/-/g,":");
+                    // var hora = list_hora[0].replace(/-/g,":");
+
+                    var iden = quebra[3].split(".");
+                    var identificacao = iden[0]; 
 
                     arq = {
-                        indentificacao: 'Secador_X',
+                        indentificacao: identificacao,
                         data: data,
                         hora: hora,
                         uri: caminho
