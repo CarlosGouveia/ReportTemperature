@@ -7,7 +7,6 @@ import {
     FlatList,
 } from 'react-native';
 
-
 import {
     Container,
     Header,
@@ -55,7 +54,6 @@ export default class ListRelatorio extends Component {
                     var data = quebra[1].replace(/-/g,"/");
 
                     var hora = quebra[2].replace(/-/g,":");
-                    // var hora = list_hora[0].replace(/-/g,":");
 
                     var iden = quebra[3].split(".");
                     var identificacao = iden[0]; 
@@ -188,6 +186,7 @@ const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#d6d8d8',
     },
+
     customHeaderList: {
         flexDirection: 'row',
     },
@@ -205,33 +204,38 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         marginBottom: 10,
     },
+
     customFlatList: {
         flex: 1,
         width: Dimensions.get('window').width,
         paddingLeft: 20,
         paddingRight: 20,
     },
+
     customIconList: {
         paddingRight: 10,
         color: '#747777',
     },
+
     identificacao: {
         fontFamily: 'Verdana',
         fontSize: 18,
         color: '#747777',
     },
+
     data: {
         color: '#f46242',
         paddingLeft: 45,
     },
+
     hora: {
         color: '#f46242',
     },
+
     divisor: {
         color: '#747777',
         paddingLeft: 20,
         paddingRight: 20,
     },
-
 });
 

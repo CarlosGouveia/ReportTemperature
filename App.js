@@ -40,7 +40,6 @@ class App extends Component {
                     </Body>
 
                 </Header>
-
                 <Container style={styles.customContainer}>
 
                     <ImageBackground
@@ -52,13 +51,13 @@ class App extends Component {
                             <Text style={styles.customText}>Abrir relatórios</Text>
                         </Button>
                     </ImageBackground>
-
+                    
                 </Container>
 
                 <Footer>
                     <FooterTab>
                         <Button active full style={styles.customFooter}>
-                            <Text>Copyright © 2018 Carlos Gouveia</Text>
+                            <Text>Copyright © 2018 Report-Temperature</Text>
                         </Button>
                     </FooterTab>
                 </Footer>
@@ -125,9 +124,9 @@ const styles = StyleSheet.create({
     },
 
     customContainer: {
-        flexGrow: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
+        flex: 1,
+        flexWrap: 'wrap',
+        flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#d6d8d8',
     },
@@ -136,5 +135,4 @@ const styles = StyleSheet.create({
         height: '100%',
         paddingTop: 80,
     },
-
 });
